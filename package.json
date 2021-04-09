@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/srap9499/employee-express-js/issues"
   },
-  "homepage": "https://github.com/srap9499/employee-express-js#readme"
+  "homepage": "https://github.com/srap9499/employee-express-js#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
 }
