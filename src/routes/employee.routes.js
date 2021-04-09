@@ -16,5 +16,8 @@ router.get('/', employeeController.findAll);
 // Get Employee By Id
 router.get('/:id', employeeController.findById);
 
+// Update Employee
+router.put('/:id', employeeController.update);
+
 
 module.exports = router;

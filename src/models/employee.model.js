@@ -54,5 +54,21 @@ Employee.findById = (id, result) => {
     });
 };
 
+// Update Employee 
+Employee.update = (id, employee, result) => {
+    dbConnect.query(`UPDATE employee SET
+    first_name = ?, last_name = ?, email = ?, phone = ?, organization = ?, designation = ?,
+    salary =? WHERE id = ?`,
+    [employee.first_name, employee.last_name, employee.email, employee.phone,
+    employee.organization, employee.designation, employee.salary, id], (err, data) => {
+        if (err) {
+            console.log('Error: ', err);
+            result(err, null);
+        } else {
+            result(null, data);
+        }
+    });
+};
+
 
 module.exports = Employee;

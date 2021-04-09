@@ -41,3 +41,18 @@ exports.findById = (req, res) => {
         }
     });
 };
+
+// Update Employee
+exports.update = (req, res) => {
+    if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
+        res.status(400).send({ error:true, message: 'Please Provide all required field' });
+    } else {
+        Employee.update(req.params.id, new Employee(req.body), (err, employee) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.json({error:false,message:'Employee successfully updated!'});
+            }
+        });
+    }
+};
