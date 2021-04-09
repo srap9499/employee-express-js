@@ -42,7 +42,6 @@ Employee.findAll = result => {
 };
 
 // Get Employee By Id
-
 Employee.findById = (id, result) => {
     dbConnect.query('SELECT * FROM employee WHERE id = ?', id, (err, data) => {
         if (err) {
@@ -61,6 +60,18 @@ Employee.update = (id, employee, result) => {
     salary =? WHERE id = ?`,
     [employee.first_name, employee.last_name, employee.email, employee.phone,
     employee.organization, employee.designation, employee.salary, id], (err, data) => {
+        if (err) {
+            console.log('Error: ', err);
+            result(err, null);
+        } else {
+            result(null, data);
+        }
+    });
+};
+
+// Delete Employee
+Employee.delete = (id, result) => {
+    dbConnect.query('DELETE FROM employee WHERE id = ?', [id], (err, data) => {
         if (err) {
             console.log('Error: ', err);
             result(err, null);

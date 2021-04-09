@@ -56,3 +56,14 @@ exports.update = (req, res) => {
         });
     }
 };
+
+// Delete Employee
+exports.delete = (req, res) => {
+    Employee.delete(req.params.id, (err, employee) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json({error:false,message:'Employee successfully deleted!'});
+        }
+    });
+};

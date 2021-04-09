@@ -19,5 +19,8 @@ router.get('/:id', employeeController.findById);
 // Update Employee
 router.put('/:id', employeeController.update);
 
+// Delete Employee
+router.delete('/:id', employeeController.delete);
+
 
 module.exports = router;
