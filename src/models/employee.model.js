@@ -41,5 +41,18 @@ Employee.findAll = result => {
     });
 };
 
+// Get Employee By Id
+
+Employee.findById = (id, result) => {
+    dbConnect.query('SELECT * FROM employee WHERE id = ?', id, (err, data) => {
+        if (err) {
+            console.log('Error: ', err);
+            result(err, null);
+        } else {
+            result(null, data);
+        }
+    });
+};
+
 
 module.exports = Employee;

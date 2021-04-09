@@ -1,7 +1,9 @@
 'use strict';
 
+// Employee Model
 const Employee = require('./../models/employee.model');
 
+// Create new employee
 exports.create = (req, res) => {
     const new_employee = new Employee(req.body);
 
@@ -18,12 +20,24 @@ exports.create = (req, res) => {
     }
 };
 
+// Get all employee
 exports.findAll = (req, res) => {
     Employee.findAll((err, employee) => {
         if (err) {
             res.send(err);
         } else {
             res.send(employee);
+        }
+    });
+};
+
+// Get employee by Id
+exports.findById = (req, res) => {
+    Employee.findById(req.params.id, (err, employee) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(employee);
         }
     });
 };

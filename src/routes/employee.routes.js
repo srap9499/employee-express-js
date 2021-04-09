@@ -13,5 +13,8 @@ router.post('/', employeeController.create);
 // Get all Employee
 router.get('/', employeeController.findAll);
 
+// Get Employee By Id
+router.get('/:id', employeeController.findById);
+
 
 module.exports = router;
