@@ -4,6 +4,7 @@
   "description": "Creating crud api using node, express and mysql",
   "main": "app.js",
   "scripts": {
+    "start": "SET PORT=3003& nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
