@@ -16,6 +16,7 @@ const Employee = function(employee) {
     this.updated_at = new Date();
 };
 
+// Create new employee
 Employee.create = (newEmployee, result) => {
     dbConnect.query('INSERT INTO employee set ?', newEmployee, (err, data) => {
         if (err) {
@@ -24,6 +25,18 @@ Employee.create = (newEmployee, result) => {
         } else {
             console.log(data.insertId);
             result(null, data.insertId);
+        }
+    });
+};
+
+// Find All Employees
+Employee.findAll = result => {
+    dbConnect.query('SELECT * FROM employee', (err, data) => {
+        if (err) {
+            console.log('Error: ', err);
+            result(err, null);
+        } else {
+            result(null, data);
         }
     });
 };

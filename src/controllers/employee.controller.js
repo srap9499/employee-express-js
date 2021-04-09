@@ -17,3 +17,13 @@ exports.create = (req, res) => {
         });
     }
 };
+
+exports.findAll = (req, res) => {
+    Employee.findAll((err, employee) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(employee);
+        }
+    });
+};
